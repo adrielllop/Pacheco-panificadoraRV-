@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Pacheco Panificadora | Sabor 2026 • Rio Verde</title>
+  <!-- Google Fonts: modernas e elegantes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #FFF3E0 0%, #FEE6CE 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    /* elementos decorativos abstratos (grãos estilizados) */
+    body::before {
+      content: "✦ ✦ ✦";
+      font-size: 180px;
+      opacity: 0.04;
+      position: fixed;
+      bottom: -30px;
+      left: -20px;
+      pointer-events: none;
+      white-space: nowrap;
+      transform: rotate(-10deg);
+      font-family: monospace;
+      z-index: 0;
+      letter-spacing: 20px;
+    }
+
+    body::after {
+      content: "🥐 🥖 🍞";
+      font-size: 140px;
+      opacity: 0.05;
+      position: fixed;
+      top: 20px;
+      right: -30px;
+      pointer-events: none;
+      transform: rotate(12deg);
+      z-index: 0;
+    }
+
+    /* container principal com vibe clean e acolhedora */
+    .bakery-card {
+      background-color: rgba(255, 250, 242, 0.98);
+      backdrop-filter: blur(1px);
+      max-width: 920px;
+      width: 100%;
+      border-radius: 56px;
+      box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.2), 0 8px 20px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+      border: 1px solid rgba(230, 170, 100, 0.4);
+    }
+
+    .content {
+      padding: 2.8rem 2rem 3rem;
+    }
+
+    /* cabeçalho com nome principal e ícone flutuante */
+    .hero {
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .bakery-icon {
+      font-size: 3.5rem;
+      display: inline-block;
+      filter: drop-shadow(2px 6px 12px rgba(0,0,0,0.08));
+      animation: levitate 3.2s ease-in-out infinite;
+    }
+
+    @keyframes levitate {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+      100% { transform: translateY(0px); }
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.8rem, 8vw, 4.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(125deg, #C25E2A, #E8904D, #F4B47B);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin: 0.5rem 0 0.2rem;
+      text-shadow: 0 2px 5px rgba(194, 94, 42, 0.1);
+    }
+
+    .subhead {
+      font-size: 1.15rem;
+      color: #A56634;
+      background: #FFF2E4;
+      display: inline-block;
+      padding: 0.4rem 1.5rem;
+      border-radius: 60px;
+      font-weight: 500;
+      backdrop-filter: blur(2px);
+      margin-top: 0.4rem;
+      letter-spacing: -0.2px;
+      box-shadow: inset 0 1px 0 rgba(255,255,240,0.9), 0 2px 6px rgba(0,0,0,0.03);
+    }
+
+    .location-badge {
+      margin-top: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      font-size: 0.92rem;
+      color: #B5713C;
+      background: rgba(252, 237, 220, 0.7);
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0.5rem 1.4rem;
+      border-radius: 50px;
+      font-weight: 500;
+    }
+
+    .location-badge i {
+      color: #E17F3A;
+      font-size: 0.9rem;
+    }
+
+    /* GRADE DE BOTÕES — elegante e responsiva */
+    .buttons-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.4rem;
+      margin: 2.6rem 0 2rem;
+    }
+
+    .btn {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: #FFFFFF;
+      padding: 1rem 2rem;
+      min-width: 200px;
+      border-radius: 80px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      box-shadow: 0 6px 14px -8px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(210, 140, 70, 0.2);
+      color: #4A2C1A;
+      letter-spacing: -0.2px;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn i {
+      font-size: 1.5rem;
+      transition: transform 0.2s;
+    }
+
+    /* cores dos ícones de marca */
+    .btn-ifood i {
+      color: #EA1D2C;
+    }
+    .btn-instagram i {
+      background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .btn-tiktok i {
+      color: #010101;
+      text-shadow: 0 0 2px #00f2ea;
+    }
+    .btn-cardapio i {
+      color: #E57A2C;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 24px -12px rgba(0, 0, 0, 0.18), 0 0 0 1px #F2BC8C;
+      background: #FFFCF7;
+    }
+
+    .btn:hover i {
+      transform: scale(1.07);
+    }
+
+    .btn:active {
+      transform: translateY(2px);
+    }
+
+    /* bloco de chamada para ação */
+    .order-tag {
+      background: #F8EDE1;
+      border-radius: 48px;
+      padding: 0.9rem 1.4rem;
+      text-align: center;
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-weight: 500;
+      color: #8F5A33;
+      border: 1px solid #F0DECC;
+    }
+
+    .order-tag span {
+      font-size: 0.98rem;
+    }
+
+    .order-tag i {
+      font-size: 1.2rem;
+      color: #E17F3A;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 2.2rem;
+      font-size: 0.78rem;
+      color: #B18157;
+      border-top: 1px dashed #E9D3BD;
+      padding-top: 1.6rem;
+      letter-spacing: 0.2px;
+    }
+
+    /* responsividade aprimorada */
+    @media (max-width: 650px) {
+      .content {
+        padding: 2rem 1.4rem 2.4rem;
+      }
+      .btn {
+        min-width: 170px;
+        padding: 0.8rem 1.4rem;
+        font-size: 1rem;
+      }
+      .btn i {
+        font-size: 1.3rem;
+      }
+      .buttons-grid {
+        gap: 1rem;
+      }
+      .bakery-icon {
+        font-size: 2.8rem;
+      }
+      .order-tag span {
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .btn {
+        min-width: 100%;
+        justify-content: center;
+      }
+      .buttons-grid {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+
+    /* detalhes suaves */
+    .wheat-decoration {
+      position: absolute;
+      bottom: 12px;
+      left: 18px;
+      opacity: 0.2;
+      font-size: 38px;
+      pointer-events: none;
+    }
+
+    .wheat-decoration-right {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      opacity: 0.18;
+      font-size: 34px;
+      pointer-events: none;
+      transform: rotate(8deg);
+    }
+  </style>
+</head>
+<body>
+  <div class="bakery-card">
+    <div class="wheat-decoration">✨🥐</div>
+    <div class="wheat-decoration-right">🍞✨</div>
+
+    <div class="content">
+      <div class="hero">
+        <div class="bakery-icon">
+          🥖🔥🥨
+        </div>
+        <h1>Pacheco Panificadora</h1>
+        <div class="subhead">
+          ✨ O sabor que conecta 2026 • Criação e frescor ✨
+        </div>
+        <div class="location-badge">
+          <i class="fas fa-map-pin"></i> Rio Verde • GO
+          <i class="fas fa-mug-hot" style="margin-left: 8px;"></i> Aberto para você
+        </div>
+      </div>
+
+      <!-- Botões estratégicos com os links exatos -->
+      <div class="buttons-grid">
+        <!-- iFood -->
+        <a href="https://www.ifood.com.br/delivery/rio-verde-go/pacheco-panificadora-residencial-canaa/1aaee2c0-6da1-47b1-8f22-de7ad805beb0?UTM_Medium=share"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-ifood">
+          <i class="fas fa-motorcycle"></i> iFood
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/panificadora.pachecorv?igsh=MTNkeTZ2MmoyYnMyNQ=="
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-instagram">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@panificadora.pacheco?_r=1&_t=ZS-95LXkQdEdFM"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-tiktok">
+          <i class="fab fa-tiktok"></i> TikTok
+        </a>
+
+        <!-- Cardápio digital -->
+        <a href="https://cardapio-navy-kappa.vercel.app/"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn btn-cardapio">
+          <i class="fas fa-receipt"></i> Cardápio
+        </a>
+      </div>
+
+      <!-- chamada moderna sem nenhuma palavra "tradição" -->
+      <div class="order-tag">
+        <i class="fas fa-bolt"></i>
+        <span>Peça pelo iFood ou explore o cardápio interativo 2026. Sabor, inovação e muito afeto!</span>
+        <i class="fas fa-star" style="color: #E17F3A;"></i>
+      </div>
+      <div class="footer-note">
+        <i class="fas fa-crown"></i> Pães autorais • Confeitaria criativa • Salgados com personalidade
+        <br>© 2026 Pacheco Panificadora – O novo sabor de Rio Verde
+      </div>
+    </div>
+  </div>
+</body>
+</html>
